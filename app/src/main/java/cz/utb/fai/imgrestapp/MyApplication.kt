@@ -12,7 +12,7 @@ class MyApplication : Application(){
     val apiService : ApodApiService by lazy {
         //create client for retrofit
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.nasa.gov/planetary/apod")
+            .baseUrl("https://api.nasa.gov/planetary/apod/")
             .addConverterFactory(GsonConverterFactory.create()) // Json converter
             .build()
 
