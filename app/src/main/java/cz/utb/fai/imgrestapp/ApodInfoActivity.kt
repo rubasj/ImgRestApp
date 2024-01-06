@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import cz.utb.fai.imgrestapp.databinding.ActivityApodinfoBinding
-import cz.utb.fai.imgrestapp.databinding.ActivityRestinfoBinding
 
 class ApodInfoActivity : AppCompatActivity() {
     private lateinit var binding: ActivityApodinfoBinding
@@ -20,10 +19,7 @@ class ApodInfoActivity : AppCompatActivity() {
 
         setContentView(view)
 
-        binding.txtLbl.text = "I hate UTB"
-
-        val app = application as MyApplication
-        viewModel = ViewModelProvider(this, ApodInfoViewModelFactory(app.repository).get
+        binding.txtLbl.text = "TEST"
 
 
     }
