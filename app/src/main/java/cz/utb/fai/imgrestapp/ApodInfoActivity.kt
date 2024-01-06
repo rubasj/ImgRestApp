@@ -21,8 +21,9 @@ class ApodInfoActivity : AppCompatActivity() {
 
         binding.txtLbl.text = "TEST"
 
+        val app = application as MyApplication
         // singleton
-        viewModel = ViewModelProvider(this, ApodInfoViewModelFactory(repository)).get(ApodInfoViewModel::class.java)
+        viewModel = ViewModelProvider(this, ApodInfoViewModelFactory(app.repository)).get(ApodInfoViewModel::class.java)
 
 
 
