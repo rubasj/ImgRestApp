@@ -26,6 +26,12 @@ class ApodInfoActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, ApodInfoViewModelFactory(app.repository)).get(ApodInfoViewModel::class.java)
 
 
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+
+
+
+
 
 
 
