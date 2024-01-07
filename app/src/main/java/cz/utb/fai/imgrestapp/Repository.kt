@@ -14,11 +14,7 @@ class Repository (
             // call REST API service to response
             val response = apiService.getApodDataInfo(
                 apiKey = API_KEY,
-                date = request.date,
-                startDate = request.startDate,
-                endDate = request.endDate,
-                count = request.count,
-                thumbs = request.thumbs
+                date = request.date
             )
 
         if (response.isSuccessful){
@@ -26,8 +22,8 @@ class Repository (
         }
         else {
             Log.ERROR
+            Log.d(response.code().toString(), response.raw().toString())
             return null
-
         }
 
 
