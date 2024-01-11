@@ -22,7 +22,6 @@ class ApodInfoViewModel(
            val result =  repository.getApodResponse(requestDto)
             _apodinfoValue.postValue(result)
         }
+
     }
-
-
 }
