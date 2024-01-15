@@ -3,13 +3,14 @@ package cz.utb.fai.imgrestapp
 import cz.utb.fai.imgrestapp.api.ApodRequestDto
 import cz.utb.fai.imgrestapp.service.ApodApiService
 import android.util.Log
-import cz.utb.fai.imgrestapp.api.ApodResponseDto
+import cz.utb.fai.imgrestapp.api.ApodInfoDomain
+import cz.utb.fai.imgrestapp.service.mapToDomain
 
 class Repository (
     private val apiService: ApodApiService
 ){
     val API_KEY = "DEMO_KEY"
-    suspend fun getApodResponse(request: ApodRequestDto): ApodResponseDto? {
+    suspend fun getApodResponse(request: ApodRequestDto): ApodInfoDomain? {
 
             // call REST API service to response
             val response = apiService.getApodDataInfo(
@@ -18,7 +19,8 @@ class Repository (
             )
 
         if (response.isSuccessful){
-            return response.body()
+            val apodInfoNetwork = response.body()
+            return apodInfoNetwork?.mapToDomain()
         }
         else {
             Log.ERROR

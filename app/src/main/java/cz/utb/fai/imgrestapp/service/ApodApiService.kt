@@ -1,9 +1,8 @@
 package cz.utb.fai.imgrestapp.service
 
-import cz.utb.fai.imgrestapp.api.ApodResponseDto
+import cz.utb.fai.imgrestapp.api.ApodInfoDomain
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface ApodApiService {
@@ -18,5 +17,5 @@ interface ApodApiService {
     suspend fun getApodDataInfo (
         @Query("api_key") apiKey : String,
         @Query("date") date: String
-    ): Response<ApodResponseDto>
+    ): Response<ApodInfoNetwork>
 }
