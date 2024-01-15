@@ -4,20 +4,22 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.CalendarView
 import android.widget.EditText
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import cz.utb.fai.imgrestapp.MyApplication
 import cz.utb.fai.imgrestapp.R
 import cz.utb.fai.imgrestapp.api.ApodRequestDto
-import cz.utb.fai.imgrestapp.databinding.ActivityApodinfoBinding
+import cz.utb.fai.imgrestapp.databinding.ActivityApodformBinding
 import cz.utb.fai.imgrestapp.model.ApodInfoViewModel
 import cz.utb.fai.imgrestapp.model.ApodInfoViewModelFactory
 
 class ApodFormActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityApodinfoBinding
-
+    private lateinit var binding: ActivityApodformBinding
 
     private lateinit var calendarView: CalendarView
     private lateinit var dateText: EditText
@@ -27,9 +29,9 @@ class ApodFormActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_apodinfo)
+        setContentView(R.layout.activity_apodform)
 
-        binding = ActivityApodinfoBinding.inflate(layoutInflater)
+        binding = ActivityApodformBinding.inflate(layoutInflater)
         val view  = binding.root
 
         setContentView(view)
@@ -50,18 +52,26 @@ class ApodFormActivity : AppCompatActivity() {
         }
 
         submitButton.setOnClickListener {
-            // Get the text from the EditText
-            val submittedDate = dateText.text.toString()
 
-            // Create a new Intent to start the next activity
-            val intent = Intent(this, ApodViewActivity::class.java)
 
-            // Pass the submitted date to the next activity using Intent
-            intent.putExtra("DATE_", submittedDate)
 
-            // Start the new activity
-            startActivity(intent)
+            if (dateText.text.toString() != null) {
+                val intent = Intent(this, ApodViewActivity::class.java)
+
+                intent.putExtra("date", dateText.text.toString())
+
+                // Start the new activity
+                startActivity(intent)
+            }
+            else {
+                val rootView: View = findViewById(android.R.id.content)
+                val snackbar = Snackbar.make(rootView, "Data from the service doesn't received.", Snackbar.LENGTH_LONG)
+                snackbar.view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorError))
+                snackbar.show()
+            }
+
         }
+
 
     }
 }
