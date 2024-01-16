@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.CalendarView
 import android.widget.EditText
 import androidx.core.content.ContextCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.android.material.snackbar.Snackbar
 import cz.utb.fai.imgrestapp.R
 import cz.utb.fai.imgrestapp.databinding.ActivityApodformBinding
@@ -24,7 +25,9 @@ class ApodFormActivity : AppCompatActivity() {
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_apodform)
 
         binding = ActivityApodformBinding.inflate(layoutInflater)
