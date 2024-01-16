@@ -1,6 +1,7 @@
 package cz.utb.fai.imgrestapp.service
 
 import cz.utb.fai.imgrestapp.api.ApodInfoDomain
+import cz.utb.fai.imgrestapp.database.ApodInfoDTO
 
 data class ApodInfoNetwork (
 
@@ -13,8 +14,8 @@ data class ApodInfoNetwork (
     val url: String
 )
 
-fun ApodInfoNetwork.mapToDomain(): ApodInfoDomain {
-    return ApodInfoDomain(
+fun ApodInfoNetwork.mapToDatabase(): ApodInfoDTO {
+    return ApodInfoDTO(
         date = this.date,
         explanation = this.explanation,
         title = this.title,

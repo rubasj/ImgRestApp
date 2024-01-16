@@ -1,6 +1,7 @@
 package cz.utb.fai.imgrestapp
 
 import android.app.Application
+import cz.utb.fai.imgrestapp.database.getDatabase
 import cz.utb.fai.imgrestapp.service.ApodApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -20,7 +21,7 @@ class MyApplication : Application(){
     }
 
     val repository: Repository by lazy {
-        Repository(apiService)
+        Repository(apiService, getDatabase(this))
     }
 
     override fun onCreate() {

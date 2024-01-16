@@ -1,5 +1,5 @@
 package cz.utb.fai.imgrestapp.api
 
-data class ApodRequestDto(
+data class ApodRequest(
     val date: String
 )

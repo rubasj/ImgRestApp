@@ -9,14 +9,10 @@ import android.widget.Button
 import android.widget.CalendarView
 import android.widget.EditText
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
-import cz.utb.fai.imgrestapp.MyApplication
 import cz.utb.fai.imgrestapp.R
-import cz.utb.fai.imgrestapp.api.ApodRequestDto
 import cz.utb.fai.imgrestapp.databinding.ActivityApodformBinding
-import cz.utb.fai.imgrestapp.model.ApodInfoViewModel
-import cz.utb.fai.imgrestapp.model.ApodInfoViewModelFactory
+
 
 class ApodFormActivity : AppCompatActivity() {
     private lateinit var binding: ActivityApodformBinding

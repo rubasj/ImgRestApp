@@ -7,21 +7,15 @@ import android.graphics.BitmapFactory
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
-import android.webkit.WebChromeClient
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
-import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import cz.utb.fai.imgrestapp.MyApplication
 import cz.utb.fai.imgrestapp.R
-import cz.utb.fai.imgrestapp.api.ApodRequestDto
+import cz.utb.fai.imgrestapp.api.ApodRequest
 import cz.utb.fai.imgrestapp.databinding.ActivityApodviewBinding
 import cz.utb.fai.imgrestapp.model.ApodInfoViewModel
 import cz.utb.fai.imgrestapp.model.ApodInfoViewModelFactory
@@ -66,7 +60,7 @@ class ApodViewActivity : AppCompatActivity() {
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-        val request = ApodRequestDto(date = stringDate)
+        val request = ApodRequest(date = stringDate)
 
         viewModel.getApodInfo(request)
         val urlData = viewModel.apodinfoValue.value?.url.toString()
