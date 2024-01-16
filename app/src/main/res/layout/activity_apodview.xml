@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
         <variable
             name="viewModel"
             type="cz.utb.fai.imgrestapp.model.ApodInfoViewModel" />
@@ -30,46 +31,46 @@
                 android:text="@{viewModel.apodinfoValue.title}"
                 android:textAlignment="center"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                />
 
-            <!-- WebView -->
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="375dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                tools:ignore="WebViewLayout" />
+                />
 
             <!-- TextView -->
             <TextView
                 android:id="@+id/explanationText"
                 android:layout_width="match_parent"
-                android:layout_height="385dp"
-                android:layout_marginBottom="16dp"
-                android:text="@{ viewModel.apodinfoValue.explanation}" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_marginBottom="16dp"
+                android:text="@{ viewModel.apodinfoValue.explanation}"
+                />
 
-                <!-- Buttons -->
+            <Button
+                android:id="@+id/returnButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnCancel_text" />
 
-                <Button
-                    android:id="@+id/returnButton"
-                    android:layout_width="133dp"
-                    android:layout_height="wrap_content"
-                    android:text="Return" />
-
-                <Button
-                    android:id="@+id/saveButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Save" />
-
-            </LinearLayout>
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewModel.showProgressBar ? View.VISIBLE : View.GONE}"
+/>
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/apodInfo_not_found"
+                android:visibility="@{viewModel.showNotFound ? View.VISIBLE: View.GONE}"
+                />
 
         </LinearLayout>
     </ScrollView>

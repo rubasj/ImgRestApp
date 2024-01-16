@@ -20,7 +20,7 @@
             android:layout_width="297dp"
             android:layout_height="128dp"
             android:layout_marginBottom="24dp"
-            android:text="Astronomical pictures"
+            android:text="@string/main_title"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -53,7 +53,7 @@
             android:layout_marginStart="35dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="35dp"
-            android:text="Submit"
+            android:text="@string/btnSubmit_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/calendarView" />

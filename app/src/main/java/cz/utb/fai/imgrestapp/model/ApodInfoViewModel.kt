@@ -20,9 +20,6 @@ class ApodInfoViewModel(
     private val _apodinfoValue = MutableLiveData<ApodInfoDomain>()
     val apodinfoValue: LiveData<ApodInfoDomain> = _apodinfoValue
     val showProgressBar = MutableLiveData<Boolean>()
-    val dateMutable = MutableLiveData<ApodRequest?>()
-    val processToDetail = MutableLiveData<Boolean>()
-    val showHint = MutableLiveData<Boolean>()
     val showNotFound = MutableLiveData<Boolean>()
     fun getApodInfo(requestDto: ApodRequest) {
 
@@ -41,24 +38,5 @@ class ApodInfoViewModel(
 
     }
 
-    fun search () {
-        if (dateMutable.value != null && !dateMutable.value!!.date.isEmpty()) {
-            // date request was provided by the user
-            showProgressBar.value = true
-            getApodInfo(dateMutable.value!!)
-
-        } else {
-            // date request was not provided, show hint text view
-            showHint.value = true
-        }
-    }
-    fun toDetail () {
-        processToDetail.value = true
-    }
-
-    fun hideHintAndNotFound () {
-        showHint.value = false
-        showNotFound.value = false
-    }
 
 }

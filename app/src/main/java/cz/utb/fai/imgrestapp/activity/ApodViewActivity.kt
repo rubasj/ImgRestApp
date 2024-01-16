@@ -36,7 +36,6 @@ class ApodViewActivity : AppCompatActivity() {
         imageView = findViewById(R.id.imageView)
         titleTextView = findViewById(R.id.titleTextView)
         descriptionText = findViewById(R.id.explanationText)
-        saveButton = findViewById(R.id.saveButton)
         returnButton = findViewById(R.id.returnButton)
 
     }

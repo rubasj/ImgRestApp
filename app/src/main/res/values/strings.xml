@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ApodViewApp</string>
+
+    <string name="main_title">Astronomical pictures</string>
+    <string name="btnSubmit_text">Submit</string>
+    <string name="btnCancel_text">Cancel</string>
+    <string name="apodInfo_not_found">Data does not exist."</string>
+
 </resources>
